@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ApplicationNew</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_wishlist">Wishlist</string>
+    <string name="title_messaenger">Messenger</string>
+    <string name="title_account">Account</string>
+    <string name="popular_location">Popular Location</string>
+    <string name="let_find">Let find out what most interesting things</string>
+    <string name="shopping">shopping</string>
+    <string name="CofeeBar"><![CDATA[Cofee & Bar]]></string>
+    <string name="Events">Events</string>
+    <string name="Real_Estate">Real Estate</string>
+    <string name="Jobseeker">Jobseeker</string>
+    <string name="Restaurant">Restaurant</string>
+    <string name="Automotive">Automotive</string>
+    <string name="More">More</string>
+    <string name="search_hint">Search Location</string>
+
+</resources>
