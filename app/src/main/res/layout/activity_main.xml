@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
+    android:layoutDirection="ltr"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -25,6 +26,7 @@
         android:background="?android:attr/windowBackground"
         app:labelVisibilityMode="auto"
         android:layout_gravity="bottom"
+        app:itemIconTint="@color/gray"
         app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

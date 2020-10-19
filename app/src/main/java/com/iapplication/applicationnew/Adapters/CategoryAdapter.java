@@ -50,8 +50,7 @@ import java.util.ArrayList;
             CategoryModel categoryModel = mainCategoryDMS.get(position);
 
             holder.buttonCategory.setText(categoryModel.getName());
-
-            Glide.with(context).load(categoryModel.getIcon()).thumbnail(0.05f).into(holder.catImage);
+            holder.catImage.setImageResource(categoryModel.getIcon());
 
 
 
@@ -65,12 +64,12 @@ import java.util.ArrayList;
         class Holder extends RecyclerView.ViewHolder {
             TextView buttonCategory;
             ImageView catImage;
+
             View line;
 
             Holder(View view) {
                 super(view);
                 buttonCategory = view.findViewById(R.id.btnCategory);
-                line = view.findViewById(R.id.view_line);
                 catImage = view.findViewById(R.id.ivCatImage);
 
 

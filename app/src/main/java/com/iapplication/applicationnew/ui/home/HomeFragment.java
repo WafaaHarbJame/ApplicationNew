@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.iapplication.applicationnew.Adapters.CategoryAdapter;
 import com.iapplication.applicationnew.Adapters.LocationsAdapter;
@@ -59,8 +60,14 @@ public class HomeFragment extends Fragment implements CategoryAdapter.OnMainCate
         context = getActivity();
 
         getSlider();
-        getCategory();
+        //getCategory();
         getPopularLocation();
+        binding.swlRefreshList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                binding.swlRefreshList.setRefreshing(false);
+            }
+        });
 
         return view;
     }
@@ -68,6 +75,7 @@ public class HomeFragment extends Fragment implements CategoryAdapter.OnMainCate
     private void getPopularLocation() {
 
         locationModels=new ArrayList<>();
+        binding.listLocation.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         binding.listLocation.setLayoutManager(linearLayoutManager);
         locationModels.add(new LocationModel(1,getString(R.string.shopping),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
@@ -85,16 +93,17 @@ public class HomeFragment extends Fragment implements CategoryAdapter.OnMainCate
 
         categoryModels=new ArrayList<>();
         // TODO: Add Recycle Shop View Layout Manger
+        binding.listCategory.setHasFixedSize(true);
         gridCategoryManger = new GridLayoutManager(context, 4, LinearLayoutManager.VERTICAL, false);
         binding.listCategory.setLayoutManager(gridCategoryManger);
-        categoryModels.add(new CategoryModel(1,getString(R.string.shopping),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(2,getString(R.string.CofeeBar),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(3,getString(R.string.Events),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(4,getString(R.string.Real_Estate),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(5,getString(R.string.Jobseeker),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(6,getString(R.string.Restaurant),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(7,getString(R.string.Automotive),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
-        categoryModels.add(new CategoryModel(8,getString(R.string.More),"https://slidervilla.com/smooth-slider/files/2014/05/6.jpg"));
+        categoryModels.add(new CategoryModel(1,getString(R.string.shopping),R.drawable.ic_shopping_basket,R.color.red));
+        categoryModels.add(new CategoryModel(2,getString(R.string.CofeeBar),R.drawable.ic_tea_cup,R.color.green));
+        categoryModels.add(new CategoryModel(3,getString(R.string.Events),R.drawable.ic_star,R.color.blue));
+        categoryModels.add(new CategoryModel(4,getString(R.string.Real_Estate),R.drawable.ic_shake_hands,R.color.gray1));
+        categoryModels.add(new CategoryModel(5,getString(R.string.Jobseeker),R.drawable.ic_jobseeker,R.color.green1));
+        categoryModels.add(new CategoryModel(6,getString(R.string.Restaurant),R.drawable.ic_restaurant,R.color.red));
+        categoryModels.add(new CategoryModel(7,getString(R.string.Automotive),R.drawable.ic_sedan_car_front,R.color.green));
+        categoryModels.add(new CategoryModel(8,getString(R.string.More),R.drawable.ic_more,R.color.blue));
         categoryAdapter=new CategoryAdapter(context,categoryModels,this,0);
         binding.listCategory.setAdapter(categoryAdapter);
 
@@ -110,8 +119,8 @@ public class HomeFragment extends Fragment implements CategoryAdapter.OnMainCate
         sliderView.setIndicatorAnimation(IndicatorAnimations.THIN_WORM);
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_RIGHT);
-        sliderView.setIndicatorSelectedColor(Color.BLUE);
-        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.setIndicatorSelectedColor(Color.RED);
+        sliderView.setIndicatorUnselectedColor(Color.BLACK);
         sliderView.setAutoCycle(true);
         sliderView.setScrollTimeInSec(3);
         sliderView.setAutoCycle(true);

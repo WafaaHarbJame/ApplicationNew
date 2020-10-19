@@ -1,6 +1,5 @@
 package com.iapplication.applicationnew.Models;
 
-import com.bumptech.glide.request.RequestOptions;
 
 import java.io.Serializable;
 
@@ -9,26 +8,15 @@ public class CategoryModel implements Serializable {
     // Category Attrs
     private int id;
     private String name;
-    private String icon;
+    private int icon;
+    private int  backColor;
 
-    private static RequestOptions requestOptions;
 
-    public CategoryModel(int id, String name, String icon) {
+    public CategoryModel(int id, String name, int icon, int backColor) {
         this.id = id;
         this.name = name;
         this.icon = icon;
-
-        requestOptions = new RequestOptions().circleCrop();
-    }
-
-    public CategoryModel(int id, String name) {
-        this.id = id;
-        this.name = name;
-
-        requestOptions = new RequestOptions().circleCrop();
-    }
-    public CategoryModel() {
-        requestOptions = new RequestOptions().circleCrop();
+        this.backColor = backColor;
     }
 
     public int getId() {
@@ -47,13 +35,19 @@ public class CategoryModel implements Serializable {
         this.name = name;
     }
 
-    public String getIcon() {
+    public int getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(int icon) {
         this.icon = icon;
     }
 
+    public int getBackColor() {
+        return backColor;
+    }
 
+    public void setBackColor(int backColor) {
+        this.backColor = backColor;
+    }
 }

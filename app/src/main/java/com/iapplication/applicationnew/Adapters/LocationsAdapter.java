@@ -71,7 +71,6 @@ public class LocationsAdapter extends RecyclerView.Adapter<LocationsAdapter.Hold
         Holder(View view) {
             super(view);
             buttonCategory = view.findViewById(R.id.btnCategory);
-            line = view.findViewById(R.id.view_line);
             catImage = view.findViewById(R.id.ivCatImage);
 
 
